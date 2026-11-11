@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vijay Anand | Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+        }
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        :root {
+            --green: #00c878;
+            --dark: #0b0b0b;
+            --card: #141414;
+            --text-gray: #999;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .green {
+            color: var(--green);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 16px;
+            height: 24px;
+            background: var(--green);
+            clip-path: polygon(
+                30% 0,
+                100% 25%,
+                80% 70%,
+                35% 100%,
+                35% 65%,
+                0 48%
+            );
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            color: #aaa;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 700px;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(28,28,28,.98) 0%,
+                    rgba(28,28,28,.96) 45%,
+                    rgba(28,28,28,.65) 70%,
+                    rgba(28,28,28,.25) 100%
+                ),
+                radial-gradient(
+                    circle at 75% 45%,
+                    #555,
+                    #222 28%,
+                    #1c1c1c 60%
+                );
+        }
+
+        /*
+          Profile image area.
+          Replace hero-photo.jpg with your own photo.
+        */
+
+        .hero-photo {
+            position: absolute;
+            right: 3%;
+            bottom: 0;
+            width: 48%;
+            height: 90%;
+            background-image:
+                linear-gradient(
+                    90deg,
+                    #1c1c1c 0%,
+                    transparent 35%
+                ),
+                url("hero-photo.jpg");
+
+            background-size: cover;
+            background-position: center top;
+            opacity: .8;
+            filter: grayscale(100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-top: 230px;
+        }
+
+        .small-title {
+            font-size: 22px;
+            font-weight: 300;
+            color: #ddd;
+            margin-bottom: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: 1.15;
+            font-weight: 700;
+        }
+
+        .typing {
+            color: #fff;
+        }
+
+        .cursor {
+            color: var(--green);
+            animation: blink .7s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .tagline {
+            font-size: 21px;
+            color: #ddd;
+            margin-top: 8px;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 27px;
+            background: var(--green);
+            color: #07140f;
+            font-size: 12px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .hero-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        .hero-info {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            display: flex;
+            gap: 0;
+        }
+
+        .hero-info-box {
+            min-width: 150px;
+            padding-right: 25px;
+            margin-right: 25px;
+            border-right: 1px solid #555;
+        }
+
+        .hero-info-box:last-child {
+            border: none;
+        }
+
+        .hero-info-box h4 {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .hero-info-box p {
+            color: #999;
+            font-size: 11px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            right: 35px;
+            bottom: 30px;
+            writing-mode: vertical-rl;
+            color: #aaa;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .about {
+            background: #0b0b0b;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 400px;
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(0,0,0,.35)
+                ),
+                url("profile.jpg");
+
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(15%);
+        }
+
+        .section-label {
+            color: var(--green);
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .about-content h2 {
+            font-size: 25px;
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .about-content > p {
+            font-size: 12px;
+            color: #888;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 40px;
+            border-top: 1px solid #292929;
+            padding-top: 20px;
+        }
+
+        .detail {
+            display: flex;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        .detail strong {
+            color: #fff;
+        }
+
+        .detail span {
+            color: #888;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--green);
+            color: #07140f;
+            padding: 11px 25px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .download-btn:hover {
+            background: white;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: #0d0d0d;
+        }
+
+        .services-title {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .services-title h2 {
+            font-size: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-title::after {
+            content: "SKILLS";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-size: 65px;
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px #242424;
+            z-index: 1;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            background: #151515;
+            min-height: 180px;
+            padding: 28px;
+            border: 1px solid #1b1b1b;
+            transition: .4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--green);
+            background: #171717;
+        }
+
+        .service-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            color: var(--green);
+            margin-bottom: 17px;
+        }
+
+        .service-card h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 10px;
+            line-height: 1.9;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #0d0d0d;
+        }
+
+        .projects .services-title::after {
+            content: "PROJECTS";
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 720px;
+        }
+
+        .project-card {
+            max-width: 720px;
+            min-height: 180px;
+            padding: 28px;
+            background: #151515;
+            border: 1px solid #1b1b1b;
+            border-left: 3px solid var(--green);
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-type {
+            color: var(--green);
+            font-size: 11px;
+            margin-bottom: 14px;
+        }
+
+        .project-card p:last-child {
+            max-width: 560px;
+            color: #999;
+            font-size: 11px;
+            line-height: 1.9;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education {
+            background: #0b0b0b;
+        }
+
+        .education-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .education-title h2 {
+            font-size: 27px;
+        }
+
+        .education-title p {
+            color: var(--green);
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .edu-card {
+            padding: 30px;
+            background: #141414;
+            border-left: 3px solid var(--green);
+        }
+
+        .edu-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .edu-card .college {
+            color: #999;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .year {
+            margin-top: 15px;
+            color: var(--green);
+            font-size: 12px;
+        }
+
+        .mark {
+            margin-top: 7px;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           PERSONAL TRAITS
+        ========================= */
+
+        .traits {
+            background: #0e0e0e;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .trait {
+            background: #151515;
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: .3s;
+        }
+
+        .trait:hover {
+            border-color: var(--green);
+        }
+
+        .trait-icon {
+            color: var(--green);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .trait p {
+            color: #bbb;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #0b0b0b;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact > p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .contact-cards {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            min-width: 200px;
+            background: #151515;
+            padding: 25px;
+        }
+
+        .contact-card span {
+            color: var(--green);
+            font-size: 25px;
+        }
+
+        .contact-card h4 {
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        .contact-card p {
+            color: #777;
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #070707;
+            border-top: 1px solid #181818;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .nav-links {
+                gap: 17px;
+            }
+
+            .hero-photo {
+                width: 50%;
+                opacity: .4;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                width: 300px;
+                margin: auto;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .traits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media(max-width: 650px) {
+
+            header {
+                height: auto;
+            }
+
+            .navbar {
+                height: 65px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+                background: #111;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 750px;
+            }
+
+            .hero-photo {
+                width: 100%;
+                right: 0;
+                opacity: .25;
+            }
+
+            .hero-content {
+                padding-top: 190px;
+            }
+
+            .small-title {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .tagline {
+                font-size: 17px;
+            }
+
+            .hero-info {
+                bottom: 25px;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero-info-box {
+                min-width: 120px;
+            }
+
+            .scroll-down {
+                display: none;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+
+
+        @media(max-width: 420px) {
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-info-box {
+                border: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="#home" class="logo">
+
+                <span class="logo-icon"></span>
+
+                VIJAY
+
+            </a>
+
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">Resume</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Portfolio</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <div class="menu-btn" id="menuBtn">
+                ☰
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-photo"></div>
+
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <p class="small-title">
+                    Hi There!
+                </p>
+
+
+                <h1>
+                    I am
+                    <span class="typing" id="typing"></span>
+                    <span class="cursor">|</span>
+                </h1>
+
+
+                <p class="tagline">
+                    I make the complex simple.
+                </p>
+
+
+                <a href="#contact" class="hero-btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+
+            <div class="hero-info">
+
+                <div class="hero-info-box">
+
+                    <h4>Email</h4>
+
+                    <p>
+                        Your Email
+                    </p>
+
+                </div>
+
+
+                <div class="hero-info-box">
+
+                    <h4>Phone</h4>
+
+                    <p>
+                        Your Phone
+                    </p>
+
+                </div>
+
+
+                <div class="hero-info-box">
+
+                    <h4>Location</h4>
+
+                    <p>
+                        Salem, Tamil Nadu
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="scroll-down">
+            SCROLL DOWN ↓
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-wrapper">
+
+
+                <div class="about-image"></div>
+
+
+                <div class="about-content">
+
+                    <div class="section-label">
+                        Who am I?
+                    </div>
+
+
+                    <h2>
+                        I'm <span class="green">
+                        Vijay Anand
+                        </span>,
+                        a Web Developer
+                        and Python Developer
+                    </h2>
+
+
+                    <p>
+                        As a fresher in this field, I want to
+                        understand the nature of my work and
+                        learn the various processes involved in
+                        my job. My goal is to improve my skills
+                        and implement my knowledge in the
+                        practical world.
+                    </p>
+
+
+                    <div class="details">
+
+                        <div class="detail">
+                            <strong>Name:</strong>
+                            <span>Vijay Anand L</span>
+                        </div>
+
+                        <div class="detail">
+                            <strong>City:</strong>
+                            <span>Salem</span>
+                        </div>
+
+                        <div class="detail">
+                            <strong>Age:</strong>
+                            <span>25 Years</span>
+                        </div>
+
+                        <div class="detail">
+                            <strong>Language:</strong>
+                            <span>Tamil, English</span>
+                        </div>
+
+                        <div class="detail">
+                            <strong>Nationality:</strong>
+                            <span>Indian</span>
+                        </div>
+
+                        <div class="detail">
+                            <strong>Blood:</strong>
+                            <span>B Positive</span>
+                        </div>
+
+                    </div>
+
+
+                    <a href="#" class="download-btn">
+                        Download CV
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section class="services" id="skills">
+
+        <div class="container">
+
+            <div class="services-title">
+
+                <h2>
+                    My <span class="green">Skills</span>
+                </h2>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <img src="images/web-dev-logo-emerald.png" alt="Web Developer Logo" style="width: 32px; height: 32px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.6));" />
+                    </div>
+
+                    <h3>
+                        Web Developer
+                    </h3>
+
+                    <p>
+                        Web Development
+                        knowledge and practical learning.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <img src="images/python-logo.png" alt="Python Logo" style="width: 32px; height: 32px; object-fit: contain; vertical-align: middle;" />
+                    </div>
+
+                    <h3>
+                        Python Development
+                    </h3>
+
+                    <p>
+                        Knowledge and interest in
+                        Python development.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <img src="images/ms-office-icon.png" alt="MS Office Logo" style="height: 30px; width: 30px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.5));" />
+                    </div>
+
+                    <h3>
+                        MS Office
+                    </h3>
+
+                    <p>
+                        Familiar with Microsoft Office
+                        applications and tools.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <img src="images/tally-logo-dark.png" alt="Tally Logo" style="height: 24px; width: auto; object-fit: contain; vertical-align: middle;" />
+                    </div>
+
+                    <h3>
+                        Tally
+                    </h3>
+
+                    <p>
+                        Knowledge of Tally software
+                        and accounting-related tools.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <img src="images/digital-marketing-dark.png" alt="Digital Marketing Logo" style="height: 28px; width: 28px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.6));" />
+                    </div>
+
+                    <h3>
+                        Digital Marketing
+                    </h3>
+
+                    <p>
+                        Digital marketing strategies and online promotion.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section class="projects" id="projects">
+
+        <div class="container">
+
+            <div class="services-title">
+
+                <h2>
+                    My <span class="green">Projects</span>
+                </h2>
+
+            </div>
+
+            <div class="projects-container">
+
+                <article class="project-card">
+                    <h3>VJ Institute - LMS</h3>
+                    <p class="project-type">Learning Management System</p>
+                    <p>
+                        An advanced learning management platform featuring interactive student dashboards, video masterclasses, quiz assessments, course progress tracking, and professional certifications.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        <a href="https://lms-tz16.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--green); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                            Visit Live Project &nearr;
+                        </a>
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <h3>SmartBiz - E-Commerce Platform</h3>
+                    <p class="project-type">Full Stack E-Commerce Website</p>
+                    <p>
+                        A modern, responsive e-commerce storefront featuring real-time product search, category filters, interactive product details, slide-over cart drawer, and seamless checkout experience.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        <a href="https://e-commers-5a71.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--green); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                            Visit Live Project &nearr;
+                        </a>
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <h3>RedTaxi</h3>
+                    <p class="project-type">Taxi Booking Project</p>
+                    <p>
+                        A taxi booking project designed to make finding and booking
+                        a ride straightforward for passengers.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section class="education" id="education">
+
+        <div class="container">
+
+            <div class="education-title">
+
+                <h2>
+                    My <span class="green">Education</span>
+                </h2>
+
+                <p>
+                    Educational Qualification
+                </p>
+
+            </div>
+
+
+            <div class="education-grid">
+
+
+                <div class="edu-card">
+
+                    <h3>
+                        B.Com
+                    </h3>
+
+                    <p class="college">
+                        Sri Balamurugan Arts and
+                        Science College
+                    </p>
+
+                    <p class="year">
+                        2022
+                    </p>
+
+                    <div class="mark">
+                        70.8%
+                    </div>
+
+                </div>
+
+
+                <div class="edu-card">
+
+                    <h3>
+                        HLC
+                    </h3>
+
+                    <p class="college">
+                        Velasami Chettiyar
+                        Hr. Sec. School
+                    </p>
+
+                    <p class="year">
+                        2019
+                    </p>
+
+                    <div class="mark">
+                        44.4%
+                    </div>
+
+                </div>
+
+
+                <div class="edu-card">
+
+                    <h3>
+                        SSLC
+                    </h3>
+
+                    <p class="college">
+                        Velasami Chettiyar
+                        Hr. Sec. School
+                    </p>
+
+                    <p class="year">
+                        2016
+                    </p>
+
+                    <div class="mark">
+                        53.8%
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PERSONAL TRAITS
+    ========================= -->
+
+    <section class="traits">
+
+        <div class="container">
+
+            <div class="education-title">
+
+                <h2>
+                    Personal <span class="green">Traits</span>
+                </h2>
+
+            </div>
+
+
+            <div class="traits-grid">
+
+
+                <div class="trait">
+
+                    <div class="trait-icon">
+                        ✦
+                    </div>
+
+                    <p>
+                        Creative & Logical
+                    </p>
+
+                </div>
+
+
+                <div class="trait">
+
+                    <div class="trait-icon">
+                        ◈
+                    </div>
+
+                    <p>
+                        Problem Solving Ability
+                    </p>
+
+                </div>
+
+
+                <div class="trait">
+
+                    <div class="trait-icon">
+                        ◎
+                    </div>
+
+                    <p>
+                        Co-operative
+                    </p>
+
+                </div>
+
+
+                <div class="trait">
+
+                    <div class="trait-icon">
+                        ◇
+                    </div>
+
+                    <p>
+                        Observing & Learning
+                    </p>
+
+                </div>
+
+
+                <div class="trait">
+
+                    <div class="trait-icon">
+                        ✦
+                    </div>
+
+                    <p>
+                        Team Work
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <h2>
+                Let's <span class="green">Connect</span>
+            </h2>
+
+            <p>
+                Feel free to contact me for opportunities
+                and professional connections.
+            </p>
+
+
+            <div class="contact-cards">
+
+
+                <div class="contact-card">
+
+                    <span>
+                        ✉
+                    </span>
+
+                    <h4>
+                        Email
+                    </h4>
+
+                    <p>
+                        Add your email
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <span>
+                        ☎
+                    </span>
+
+                    <h4>
+                        Phone
+                    </h4>
+
+                    <p>
+                        Add your phone number
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <span>
+                        ◎
+                    </span>
+
+                    <h4>
+                        Location
+                    </h4>
+
+                    <p>
+                        Salem, Tamil Nadu
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Vijay Anand L. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* MOBILE MENU */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* CLOSE MENU AFTER CLICK */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* TYPING EFFECT */
+
+        const typingElement =
+            document.getElementById("typing");
+
+        const words = [
+            " Developer",
+            " Python Developer",
+            " Web Developer"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+
+        function typingEffect() {
+
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+
+                    deleting = true;
+
+                    setTimeout(typingEffect, 1400);
+
+                    return;
+
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    wordIndex++;
+
+                    if (wordIndex >= words.length) {
+
+                        wordIndex = 0;
+
+                    }
+
+                }
+
+            }
+
+            setTimeout(
+                typingEffect,
+                deleting ? 50 : 100
+            );
+
+        }
+
+        typingEffect();
+
+
+        /* SCROLL REVEAL */
+
+        const cards =
+            document.querySelectorAll(
+                ".service-card, .edu-card, .trait"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = "1";
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        cards.forEach(card => {
+
+            card.style.opacity = "0";
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "all .7s ease";
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "vijay-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Vijay Anand",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Vijay Anand",
+  "license": "ISC"
+}
