@@ -2,8 +2,8 @@
   "name": "vijay-portfolio",
   "version": "1.0.0",
   "description": "Portfolio website for Vijay Anand",
-  "main": "server.js",
   "scripts": {
+    "build": "echo 'Static build ready'",
     "start": "node server.js"
   },
   "keywords": [],
